@@ -5,7 +5,7 @@
 <meta name="theme-color" content="#efe9df">
 <title>PX 화장품 배치도 (5사단 공병대대)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
 <style>/* ===== 공통 토큰 ===== */
 :root{--ink:#161616;--sub:#6b6b6b;--line:#ececec;--paper:#fff;--accent:#e23b3b}
 
@@ -223,8 +223,10 @@ html.locked,html.locked body{overflow:hidden}
 .btn-pair{display:flex;align-items:center;gap:8px}
 .item .cartbtn{width:36px;height:36px}
 .item .cartbtn svg{width:17px;height:17px}
-.item .acts{align-items:flex-end}
-.item .stackbtns{display:flex;flex-direction:column;gap:6px}
+/* 용량·가격 줄 오른쪽에 장바구니(또는 수량) → 링크 버튼 바로 위, 세로 길이는 그대로 */
+.item .mid{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:0 8px;align-items:end}
+.item .mid > div{min-width:0}
+.item .mid .side{display:flex;justify-content:flex-end;padding-bottom:2px}
 
 /* 헤더 장바구니 */
 .topcart{position:absolute;top:28px;right:12px;width:44px;height:44px;border-radius:50%;border:0;background:#fff;
@@ -296,8 +298,7 @@ html.locked,html.locked body{overflow:hidden}
 .cpanel .item .stepper{height:34px}
 .cpanel .item .stepper button{width:27px}
 .cpanel .item .stepper output{min-width:20px}
-.cpanel .item .acts{gap:5px;padding-top:8px}
-.cpanel .item .stackbtns{align-items:flex-end}
+.cpanel .item .acts{gap:6px;padding-top:8px}
 .cpanel .item .line{font-size:12px;color:#6b6b6b;margin-top:2px;font-variant-numeric:tabular-nums}
 .cfoot{flex:none;background:#fff;border-top:1px solid #e3d9cb;padding:10px 14px calc(12px + env(safe-area-inset-bottom))}
 .ctot{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:10px}
@@ -305,11 +306,11 @@ html.locked,html.locked body{overflow:hidden}
 .ctot b{font-size:20px;font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
 .ctot b small{font-size:13px}
 .cfoot .btn{display:block;width:min(100%,280px);margin:0 auto}
-.empty{text-align:center;padding:40px 16px;color:#7a6f63;font-size:14px;word-break:keep-all}
-.empty b{display:block;font-size:16px;color:#3d3128;margin-bottom:6px}
-.empty .btn{margin-top:16px;width:200px}
+.cempty{text-align:center;padding:40px 16px;color:#7a6f63;font-size:14px;word-break:keep-all}
+.cempty b{display:block;font-size:16px;color:#3d3128;margin-bottom:6px}
+.cempty .btn{margin-top:16px;width:200px}
 
-/* ===== 최종 쇼핑하기 (노트) ===== */
+/* ===== 최종 구매하기 (노트) ===== */
 .layer.note{padding:16px 8px}
 .npanel{position:relative;width:min(100%,520px);max-height:calc(100vh - 32px);max-height:calc(100dvh - 32px);display:flex;flex-direction:column;
   background:#fffdf6;border-radius:6px 16px 16px 6px;box-shadow:0 18px 50px rgba(0,0,0,.35);overflow:hidden;color:#2a2620;
@@ -317,7 +318,7 @@ html.locked,html.locked body{overflow:hidden}
 .npanel::before{content:"";position:absolute;left:0;top:0;bottom:0;width:10px;
   background:repeating-linear-gradient(#e8dfcf 0 6px,#cbbfa9 6px 8px);z-index:2}
 .nhead{flex:none;position:relative;padding:14px 56px 10px 30px;border-bottom:2px solid var(--margin)}
-.nhead h3{margin:0;font-family:"Gaegu","Apple SD Gothic Neo",sans-serif;font-size:26px;font-weight:700;color:var(--pen);line-height:1.1}
+.nhead h3{margin:0;font-family:"Gowun Dodum","Apple SD Gothic Neo",sans-serif;font-size:23px;font-weight:400;letter-spacing:-.01em;color:var(--pen);line-height:1.1}
 .nhead p{margin:3px 0 0;font-size:12px;color:#7a6f63}
 .nhead .xbtn{top:10px;right:10px;width:38px;height:38px;box-shadow:none;background:#f1ece5}
 .nhead .edit{margin-top:6px;border:0;background:none;padding:0;color:var(--pen);font-size:13px;font-weight:700;text-decoration:underline;cursor:pointer}
@@ -348,7 +349,7 @@ html.locked,html.locked body{overflow:hidden}
 .nstat{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:6px 10px}
 .nstat div{display:flex;flex-direction:column}
 .nstat span{font-size:12px;color:#7a6f63;font-weight:700}
-.nstat b{white-space:nowrap;font-family:"Gaegu","Apple SD Gothic Neo",sans-serif;font-size:22px;font-weight:700;color:var(--pen);font-variant-numeric:tabular-nums;line-height:1.15}
+.nstat b{white-space:nowrap;font-family:"Gowun Dodum","Apple SD Gothic Neo",sans-serif;font-size:20px;font-weight:400;color:var(--pen);font-variant-numeric:tabular-nums;line-height:1.15}
 .nstat b small{font-family:-apple-system,"Noto Sans KR",sans-serif;font-size:12px;color:#6b6157;font-weight:700}
 .nbar{grid-column:1/-1;height:6px;border-radius:3px;background:#ece5d8;overflow:hidden}
 .nbar i{display:block;height:100%;background:var(--pen);transition:width .25s}
@@ -517,7 +518,7 @@ function sheetHTML(p){
 function refreshLineSums(){
   document.querySelectorAll('[data-linesum]').forEach(el => {
     const p = P[el.dataset.linesum], q = CART[p.code] || 0;
-    el.innerHTML = `${won(p.price)}원 × ${q} = <b>${won(p.price * q)}원</b>`;
+    el.innerHTML = `× ${q} = <b>${won(p.price * q)}원</b>`;
   });
 }
 function addToCart(code){
@@ -531,11 +532,11 @@ function addToCart(code){
 function cartItemHTML(p){
   return `<article class="item" data-citem="${p.code}">${staticCard(p)}
     <div class="txt"><div class="brand">${p.brand}</div><div class="name">${p.name}</div>
-      <div class="vol">${p.volume}</div><div class="price">${won(p.price)}<small>원</small></div>
-      <div class="line" data-linesum="${p.code}"></div>
+      <div class="vol">${p.volume}</div>
+      <div class="mid"><div><div class="price">${won(p.price)}<small>원</small></div>
+        <div class="line" data-linesum="${p.code}"></div></div><div class="side">${stepper(p.code)}</div></div>
       <div class="acts"><button class="posbtn" data-pos="${p.code}" data-from="cart">${ICON_PIN}제품 위치 보기</button>
-        <div class="stackbtns">${stepper(p.code)}
-          <button class="linkbtn" data-link="${p.code}" aria-label="제품 설명 링크 열기">${ICON_LINK}</button></div></div></div></article>`;
+        <button class="linkbtn" data-link="${p.code}" aria-label="제품 설명 링크 열기">${ICON_LINK}</button></div></div></article>`;
 }
 function cartHTML(){
   return `<div class="cpanel box" role="dialog" aria-modal="true" aria-label="구매 리스트">
@@ -543,13 +544,13 @@ function cartHTML(){
       <button class="xbtn" data-close aria-label="닫기">${ICON_X}</button></div>
     <div class="cbody" data-cbody></div>
     <div class="cfoot"><div class="ctot"><span data-ctotn></span><b data-ctot></b></div>
-      <button class="btn dark" data-go="note">최종 쇼핑하기</button></div></div>`;
+      <button class="btn dark" data-go="note">최종 구매하기</button></div></div>`;
 }
 function renderCart(){
   const L = stack.find(l => l.classList.contains('cart')); if (!L) return;
   const items = cartItems();
   L.querySelector('[data-cbody]').innerHTML = items.length ? items.map(cartItemHTML).join('')
-    : `<div class="empty"><b>아직 담은 상품이 없어요</b>제품 정보나 카테고리 목록의 장바구니 버튼으로 담을 수 있어요.<br><button class="btn light" data-close>상품 고르러 가기</button></div>`;
+    : `<div class="cempty"><b>아직 담은 상품이 없어요</b>제품 정보나 카테고리 목록의 장바구니 버튼으로 담을 수 있어요.<br><button class="btn light" data-close>상품 고르러 가기</button></div>`;
   updateCartTotals(); refreshLineSums();
 }
 function updateCartTotals(){
@@ -562,7 +563,7 @@ function updateCartTotals(){
 }
 function openCart(){ openLayer('cart', cartHTML()); renderCart(); }
 
-/* ---------- 최종 쇼핑하기 (노트) ---------- */
+/* ---------- 최종 구매하기 (노트) ---------- */
 function noteRowHTML(p){
   const q = CART[p.code], on = !!CHECK[p.code];
   return `<div class="nrow${on ? ' done' : ''}" data-nrow="${p.code}">
@@ -573,8 +574,8 @@ function noteRowHTML(p){
 }
 function noteHTML(){
   const items = cartItems();
-  return `<div class="npanel box" role="dialog" aria-modal="true" aria-label="최종 쇼핑하기">
-    <div class="nhead"><h3>최종 쇼핑하기</h3><p>담을 때마다 왼쪽 칸에 체크해요 · 진열대 순서</p>
+  return `<div class="npanel box" role="dialog" aria-modal="true" aria-label="최종 구매하기">
+    <div class="nhead"><h3>최종 구매하기</h3><p>담을 때마다 왼쪽 칸에 체크해요 · 진열대 순서</p>
       <button class="edit" data-go="edit">구매 리스트 수정하기</button>
       <button class="xbtn" data-close aria-label="닫기">${ICON_X}</button></div>
     <div class="nbody">${items.map(noteRowHTML).join('')}</div>
@@ -697,10 +698,11 @@ function catNav(current){
 function itemHTML(p){
   return `<article class="item" data-item="${p.code}">${staticCard(p)}
     <div class="txt"><div class="brand">${p.brand}</div><div class="name">${p.name}</div>
-      <div class="vol">${p.volume}</div><div class="price">${won(p.price)}<small>원</small></div>
-      <div class="loc">위치 ${p.code}</div>
+      <div class="vol">${p.volume}</div>
+      <div class="mid"><div><div class="price">${won(p.price)}<small>원</small></div>
+        <div class="loc">위치 ${p.code}</div></div><div class="side">${cartBtn(p.code)}</div></div>
       <div class="acts"><button class="posbtn" data-pos="${p.code}">${ICON_PIN}제품 위치 보기</button>
-        <div class="stackbtns">${cartBtn(p.code)}<button class="linkbtn" data-link="${p.code}" aria-label="제품 설명 링크 열기">${ICON_LINK}</button></div></div></div></article>`;
+        <button class="linkbtn" data-link="${p.code}" aria-label="제품 설명 링크 열기">${ICON_LINK}</button></div></div></article>`;
 }
 function renderCategories(){
   let html = `<h2>카테고리별 보기</h2><p>버튼을 누르면 해당 카테고리로 이동해요. 각 제품의 '제품 위치 보기'를 누르면 진열대에서 위치를 알려줘요.</p>${catNav()}`;
@@ -745,9 +747,17 @@ function clearSpot(){
   spot = null;
 }
 function onUserMove(){ clearSpot(); }
-function onUserTouch(e){ if (!e.target.closest('.backbtn')) clearSpot(); }
+/* 돌아가기용 터치가 새로 열린 창의 버튼/배경까지 눌리지 않게 잠깐 클릭을 막음 */
+let clickBlockUntil = 0;
+function blockClicks(ms){ clickBlockUntil = Date.now() + ms; }
+document.addEventListener('click', e => { if (Date.now() < clickBlockUntil){ e.preventDefault(); e.stopPropagation(); } }, true);
+function onUserTouch(e){
+  if (e.target.closest('.backbtn')) return;
+  if (spot && spot.tapBack){ blockClicks(450); goBack(); return; }   // 최종 구매하기에서 왔으면 터치 = 돌아가기
+  clearSpot();
+}
 
-function showPosition(code, onBack){
+function showPosition(code, onBack, tapBack){
   clearSpot();
   const card = document.querySelector(`#shelves .pcard[data-code="${code}"]`);
   if (!card) return;
@@ -758,7 +768,7 @@ function showPosition(code, onBack){
   waitScrollEnd(() => {
     const row = card.closest('.row'), badge = row && row.querySelector('.row-code');
     const p = P[code];
-    spot = {card, badge, returnY, onBack};
+    spot = {card, badge, returnY, onBack, tapBack};
     void card.offsetWidth;                       // 애니메이션 매번 새로 시작
     card.classList.add('spot'); badge && badge.classList.add('spot');
     tip.textContent = `${p.row} 행 · 왼쪽에서 ${p.slot}번째`;
@@ -773,17 +783,18 @@ function showPosition(code, onBack){
     }, 80);
   });
 }
-backBtn.addEventListener('click', () => {
+function goBack(){
   if (!spot) return;
   const y = spot.returnY, after = spot.onBack; clearSpot();
-  if (after){ scrollTo({top: y}); after(); }          // 구매 리스트/최종 쇼핑하기에서 왔으면 그 창을 다시 열기
+  if (after){ scrollTo({top: y}); after(); }          // 구매 리스트/최종 구매하기에서 왔으면 그 창을 다시 열기
   else scrollTo({top: y, behavior: 'smooth'});
-});
+}
+backBtn.addEventListener('click', goBack);
 document.addEventListener('click', e => {
   const b = e.target.closest('[data-pos]');
   if (!b) return;
   const from = b.dataset.from;
-  if (from){ closeAll(); showPosition(b.dataset.pos, from === 'cart' ? openCart : openNote); }
+  if (from){ closeAll(); showPosition(b.dataset.pos, from === 'cart' ? openCart : openNote, from === 'note'); }
   else showPosition(b.dataset.pos);
 });
 
